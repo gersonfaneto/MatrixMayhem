@@ -1,5 +1,7 @@
+# Based on :: https://github.com/the-nix-way/dev-templates
+
 {
-  description = "A Nix-flake-based Python development environment";
+  description = "MatrixMayhem by @gersonfaneto";
 
   inputs.nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.*.tar.gz";
 
@@ -15,7 +17,10 @@
         default = pkgs.mkShell {
           venvDir = ".venv";
           packages = with pkgs; [
+            # Python
             python311
+
+            # Others
             efm-langserver
           ] ++
             (with pkgs.python311Packages; [
